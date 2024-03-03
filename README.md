@@ -65,3 +65,41 @@ https://nodejs.org/en/download
 6. `docker rmi <image-id>` ใช้สำหรับลบ Image ที่ไม่ต้องการ 
 
 ## ส่วนที่ 3 Build Your Own Image With Dockerfile
+
+1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download FIle](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
+2. หลังจาก Download แล้วและเปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
+   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213924154441470075/image.png?ex=65f73df8&is=65e4c8f8&hm=55aef518756e7799c19a2d76db1846a2930aef5f902113ce20b1e3c8a4807b8a&)
+3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
+4. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
+   1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ containerเรา ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs 
+   
+   ยกตัวอย่าง
+   ```Docker
+   FROM node:21-alpine3.18
+   ```
+   2. กำหนด path เริ่มต้นเมื่อเริ่มใช้งาน Container ด้วย `WORKDIR <path>`
+   
+   ตัวอย่าง
+   ```Docker
+   WORKDIR /app
+   ```
+   3. Copy Application ของเราเข้าไปใส่ใน Container ด้วย `COPY <source> <dest>`
+   
+   ตัวอย่าง
+   ```Docker
+   COPY . .
+   ```
+   4. ติดตั้ง dependencies ด้วย `RUN` หาก Application ของเรามีการใช้ package หรือ dependencies เพิ่มเติม 
+   ```Docker
+   RUN npm i
+   ```
+   5. เนื่องจาก App ของเรามีการใช้ port เราจึงต้อง Expose port ด้วย ในกรณีนี้คือ port 3000 (ดูจาก index.js)
+   ```Docker
+   EXPOSE 3000
+   ```
+   6. ตั้ง default command ด้วย `CMD` โดยที่ default command จะทำงานทุกครั้งที่เราสั่ง start container ต่างจาก `RUN` ที่จะทำงานเฉพาะตอนสร้าง image เท่านั้น ดังนั้น default command ควรเป็น command สำหรับ run App ของเรา
+   ```Docker
+   CMD ["node","index.js"]
+   ```
+  สุดท้ายเราจะได้ Dockerfile หน้าตาแบบนี้
+  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213935731756630146/image.png?ex=65f748c0&is=65e4d3c0&hm=776d22fea9926f57bae01959a02b64160c73420592208671d190cbed4f19bd74&)

@@ -6,7 +6,8 @@ let counter = 0;
 app.get('/',(req,res)=>{
     res.end(`<div>Hostname (ContainerID) :<strong> ${os.hostname}</strong></div> Count : ${counter++}`)
 })
+let port = 3000
 
-app.listen(3000,()=>{
-    console.log("Server Running at port 3000")
+app.listen(port,()=>{
+    console.log(`Listening Port ${port}`)
 })
