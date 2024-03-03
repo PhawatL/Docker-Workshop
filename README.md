@@ -1,4 +1,4 @@
-# Containers with Docker
+# Containers with Docker Workshop
 
 ## ส่วนที่ 1 ติดตั้ง Docker
 
