@@ -4,24 +4,28 @@
 
 
 1. download docker จาก https://www.docker.com/get-started/
-2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายให้ครบทุกช่องแล้วกด ok (ในคอมพิวเตอร์บางเครื่องอาจที่แค่ช่องเดียวให้ติ๊ก)
+2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายให้ครบทุกช่องแล้วกด ok (ในคอมพิวเตอร์บางเครื่องอาจมีให้ติ๊ก2ช่องให้ติ๊กทั้ง2ช่องเลย)
 
-    ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213802340012793917/image.png?ex=65f6cc85&is=65e45785&hm=d741ca9ac1161322631b9fa371b74ed4be08a1c64d893abad1595e1c704a692c&)
+    ![image](https://cdn.discordapp.com/attachments/1200328562591399937/1213863087137103903/image.png?ex=65f70518&is=65e49018&hm=586a84ac705c86b48143c6951325336a232207361db6f561c2bc09dc57d72fd6&)
 
 3. หลังจากรอติดตั้งประมาณ3-5นาที จะได้หน้าต่างแบบนี้
-![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803202336653372/image.png?ex=65f6cd52&is=65e45852&hm=fbadee3346b812c659462a4b91f83114c09acc0fe05d6fec1d0166ab3f92f749&)
+![image](https://media.discordapp.net/attachments/1200328562591399937/1213863652382220368/image.png?ex=65f7059f&is=65e4909f&hm=1f3fc101e4374dadd0360f74bdd016f720cf3d19fc2e38305e5918a5f80dd2c6&=&format=webp&quality=lossless)
 
-4. เมื่อกดปุ่ม “Close and restart” แล้ว คอมพิวเตอร์จะ restart เครื่องเองโดยอัตโนมัติและเมื่อคอมพิวเตอร์เปิดขึ้นมาใหม่ รอประมาณ5-10วินาที(ขึ้นอยู่กับความเร็วของคอมพิวเตอร์)จะได้หน้าต่างแบบนี้ขึ้นมา
+4. เมื่อกดปุ่ม “Close and restart” แล้ว คอมพิวเตอร์จะ restart เครื่องเองโดยอัตโนมัติและเมื่อคอมพิวเตอร์เปิดขึ้นมาใหม่ รอประมาณ 30 วินาที(ขึ้นอยู่กับความเร็วของคอมพิวเตอร์)จะได้หน้าต่างแบบนี้ขึ้นมา
 ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803386642759740/image.png?ex=65f6cd7e&is=65e4587e&hm=f69000b48c80e429506daa598b40867ca6fe4bda6ebd57ffe2609ef85f8f6adf&)
 
 5. ให้กด “Accept”  จากนั้นกดปุ่ม “Finish”
 ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803815774588990/image.png?ex=65f6cde5&is=65e458e5&hm=3bcd9b95dd858a718917db35d83c90e5d95435ecc0ab847e2e87c53fcbc9ef49&)
 
-6. ส่วนการ Sign in เราสามารถ Skip ไปได้เลยด้วย Continue without signing in
+6. ส่วนการ Sign in ส่วนนี้แล้วแล้วแต่เลยอยากจะ Sign in หรือไม่ก็ได้
 ![sign in](https://cdn.discordapp.com/attachments/318688893941841920/1213804114107179058/image.png?ex=65f6ce2c&is=65e4592c&hm=c75f4a44d387ac78f8d814b0822e385dc1511b257296154a565f209d2b49594e&6)
+
+7. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
+   ![](https://media.discordapp.net/attachments/1200328562591399937/1213865337632587837/image.png?ex=65f70731&is=65e49231&hm=6dcd84fd7ab7b49065f2fc61b96f75e2565ef5bfe0b535e2564d27fdd3663f9c&=&format=webp&quality=lossless&width=1215&height=701)
 
 
 ## ส่วนที่ 2 ทำความรู้จักกับ Docker Commard เบื้องต้น
+0. เปิด cmd ขึ้นมาหากเป็น window ถ้าใช้ mac ให้เปิด terminal
 1. `docker pull <image-name:tag>` ใช้สำหรับการ download image มากจาก [Docker Hub](https://hub.docker.com/_/ubuntu) 
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213809850031669258/image.png?ex=65f6d383&is=65e45e83&hm=93d3cf7b9902467f24a8358a18342fda19c3c83cabed82bdd3d0ad75931b8dff&)
 
@@ -56,3 +60,5 @@
 5. `docker rm <container-id>` ใช้สำหรับลบ Container ที่ไม่ต้องการ
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213817297878253569/image.png?ex=65f6da73&is=65e46573&hm=dda1615e148cb6bef738adebb103ca09c9a239a29f5504e769ca3a97615f930a&)
 6. `docker rmi <image-id>` ใช้สำหรับลบ Image ที่ไม่ต้องการ 
+
+## ส่วนที่ 3 Build Your Own Image With Dockerfile
