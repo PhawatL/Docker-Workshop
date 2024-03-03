@@ -68,10 +68,10 @@ https://nodejs.org/en/download
 
 1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download FIle](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
 2. หลังจาก Download แล้วและเปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
-   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213924154441470075/image.png?ex=65f73df8&is=65e4c8f8&hm=55aef518756e7799c19a2d76db1846a2930aef5f902113ce20b1e3c8a4807b8a&)
+   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213936849152901120/image.png?ex=65f749ca&is=65e4d4ca&hm=0933f7d5fb0962e718ef69ec2ecc3f3be8831e984c04b1a607b2d09c97f03d95&)
 3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
 4. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
-   1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ containerเรา ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs 
+   1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดย `FROM <baseimage>`
    
    ยกตัวอย่าง
    ```Docker
@@ -102,4 +102,5 @@ https://nodejs.org/en/download
    CMD ["node","index.js"]
    ```
   สุดท้ายเราจะได้ Dockerfile หน้าตาแบบนี้
+
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213935731756630146/image.png?ex=65f748c0&is=65e4d3c0&hm=776d22fea9926f57bae01959a02b64160c73420592208671d190cbed4f19bd74&)
