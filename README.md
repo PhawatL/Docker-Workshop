@@ -23,6 +23,9 @@
 7. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
    ![](https://media.discordapp.net/attachments/1200328562591399937/1213865337632587837/image.png?ex=65f70731&is=65e49231&hm=6dcd84fd7ab7b49065f2fc61b96f75e2565ef5bfe0b535e2564d27fdd3663f9c&=&format=webp&quality=lossless&width=1215&height=701)
 
+### (Optional) ติดตั้ง Node.js สำหรับทดสอบโปรแกรมบนเครื่องตัวเอง
+https://nodejs.org/en/download  
+
 
 ## ส่วนที่ 2 ทำความรู้จักกับ Docker Commard เบื้องต้น
 0. เปิด cmd ขึ้นมาหากเป็น window ถ้าใช้ mac ให้เปิด terminal
