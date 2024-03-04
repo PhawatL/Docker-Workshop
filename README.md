@@ -1,6 +1,6 @@
 # Containers with Docker Workshop
 
-## ส่วนที่ 1 ติดตั้ง Docker
+## ส่วนที่ 0 ติดตั้ง Docker
 
 
 1. download docker จาก https://www.docker.com/get-started/
@@ -25,6 +25,12 @@
 
 ### (Optional) ติดตั้ง Node.js สำหรับทดสอบโปรแกรมบนเครื่องตัวเอง
 https://nodejs.org/en/download  
+
+
+## ส่วนที่ 1 ภาพรวมของ Workshop
+
+เนื่องจากอยากให้เห็นภาพรวมมากขึ้นก่อนว่าเราจะทำอะไรใน Workshop นี้
+
 
 
 ## ส่วนที่ 2 ทำความรู้จักกับ Docker Commard เบื้องต้น
@@ -77,7 +83,7 @@ https://nodejs.org/en/download
 1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download FIle](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
 2. หลังจาก Download และแตกไฟล์แล้วให้เปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
    ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213936849152901120/image.png?ex=65f749ca&is=65e4d4ca&hm=0933f7d5fb0962e718ef69ec2ecc3f3be8831e984c04b1a607b2d09c97f03d95&)
-3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
+3. สร้างไฟล์ใหม่ใน Folder ที่ download มาตั้งชื่อว่า Dockerfile 
 4. คำสั่งหลังจากนี้เราจะ run ผ่าน terminal ใน vscode ตามรูปด้านล่าง
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214178765081542666/image.png?ex=65f82b17&is=65e5b617&hm=39f4eb9457e4a90d7757e1f540f028d5b4c8c859e3734aa93c69b7fd557316ac&)
 5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา โดยจะต้องมีรายละเอียดดังนี้
@@ -116,7 +122,7 @@ https://nodejs.org/en/download
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213935731756630146/image.png?ex=65f748c0&is=65e4d3c0&hm=776d22fea9926f57bae01959a02b64160c73420592208671d190cbed4f19bd74&)
   
 6. และเมื่อเราเขียน Dockerfile เสร็จแล้วเราก็สามารถ build image ตามที่ Dockerfile เราเขียนได้เลยด้วยคำสั่ง
-  ```
+  ```bash
   docker build -t <your-image-name:tag> .
   ```
   คำสั่งนี้จะ build image ตาม Dockerfile ที่อยู่ใน Directory ปัจจุบันของเรา
@@ -127,31 +133,47 @@ https://nodejs.org/en/download
 
   คำสั่งที่ใช้ในตัวอย่าง
 
-  ```
+  ```bash
   docker build -t dockerworkshop:1.0 .
   ```
 7. หลังจกาที่เรา build image ของเราสามารถตรวจสอบดูได้ผ่าน
-```
+```bash
 docker images
 ```
 
 ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214171619359203338/image.png?ex=65f82470&is=65e5af70&hm=217408c8e17cb270709c0bf4bc0b6a81b7ecbdf68332948f4e1e775730dae287&)
 
 8. เมื่อเราได้ image ที่ต้องการแล้ว เราลอง run มันด้วยคำสั่ง `docker run` โดยเราจะมีการเพิ่ม flag ไป 2 ตัวคือ `-d` สำหรับให้ container run in background และ `-p` สำหรับ map port ของ host กับ port ของ container
-```
+```bash
 docker run -d -p host:container <image-name:tag>
 ```
 โดยตัวอย่างนี้จะใช้
-```
+```bash
 docker run -d -p 8080:3000 dockerworkshop:1.0
 ```
 ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214171696530071572/image.png?ex=65f82482&is=65e5af82&hm=353319a1a729f4bb8a8bf6bf4023fb50e3e2e43bb21396dab1f4bf559daff138&)
 
-หลังจาก run คำสั่งแล้วจะได้ containerID ออกมา เราสามารถตรวจสอบได้ว่า container เราทำงานอยู่จริงหรือไม่ได้จาก Docker Desktop 
+หลังจาก run คำสั่งแล้วจะได้ ContainerID ออกมา เราสามารถตรวจสอบได้ว่า Container เราทำงานอยู่จริงหรือไม่ ด้วย `docker ps`
 
-![](https://media.discordapp.net/attachments/1213030615289700355/1214171728151052308/image.png?ex=65f8248a&is=65e5af8a&hm=c24f00edea30f8011c522221c9e2080a5eb8b93c74662e5df44602063339bf1a&=&format=webp&quality=lossless)
+![](https://media.discordapp.net/attachments/1213030615289700355/1214184690617946154/image.png?ex=65f8309c&is=65e5bb9c&hm=0b9bd493c1f75168d3cf7e646eaae07abd80c87b0ec60484f42f855ee9239870&=&format=webp&quality=lossless)
 
-ตอนนี้เราสามารถลองเปิด http://localhost:8080
+จะเห็นว่าตอนนี้ Container ของเรากำลังทำงานและเราสามารถลองเปิด http://localhost:8080
+
+9. หากเราต้องการให้ Container หยุดทำงานสามารถทำได้ผ่านคำสั่ง 
+```bash
+docker stop <container-id>
+```
+![](https://cdn.discordapp.com/attachments/1213030615289700355/1214184947477250048/image.png?ex=65f830d9&is=65e5bbd9&hm=89d08f0ba599d72ca0f939693f5e6eb8017b504c4024326d989a1249d36bc285&)
+
+10. และถ้าเราต้องการจะเปิด Container นั้นขึ้นมากใหม่สามารถทำได้โดยใช้คำสั่ง 
+```bash
+docker start <container-id>
+```
+![](https://media.discordapp.net/attachments/1213030615289700355/1214185130529263678/image.png?ex=65f83105&is=65e5bc05&hm=f610cca86d95b0aaa22e4526b98646e613d38fb8370913861be8a5b24add9d66&=&format=webp&quality=lossless)
+
+
+## ส่วนที่ 4 Clustering With Docker Swarm
+
 
 
 

@@ -1,10 +1,9 @@
 const express = require('express')
-const os = require('os')
+const path = require('path')
 const app = express()
-let counter = 0;
 
 app.get('/',(req,res)=>{
-    res.end(`<div>Hostname (ContainerID) :<strong> ${os.hostname}</strong></div> Count : ${counter++}`)
+    res.sendFile(path.join(__dirname,"public/index.html"))
 })
 let port = 3000
 
