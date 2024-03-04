@@ -80,7 +80,7 @@ https://nodejs.org/en/download
 3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
 4. คำสั่งหลังจากนี้เราจะ run ผ่าน terminal ใน vscode ตามรูปด้านล่าง
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214178765081542666/image.png?ex=65f82b17&is=65e5b617&hm=39f4eb9457e4a90d7757e1f540f028d5b4c8c859e3734aa93c69b7fd557316ac&)
-5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
+5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา โดยจะต้องมีรายละเอียดดังนี้
    1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดย `FROM <baseimage>`
    
    ยกตัวอย่าง
@@ -141,7 +141,10 @@ docker images
 ```
 docker run -d -p host:container <image-name:tag>
 ```
-
+โดยตัวอย่างนี้จะใช้
+```
+docker run -d -p 8080:3000 dockerworkshop:1.0
+```
 ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214171696530071572/image.png?ex=65f82482&is=65e5af82&hm=353319a1a729f4bb8a8bf6bf4023fb50e3e2e43bb21396dab1f4bf559daff138&)
 
 หลังจาก run คำสั่งแล้วจะได้ containerID ออกมา เราสามารถตรวจสอบได้ว่า container เราทำงานอยู่จริงหรือไม่ได้จาก Docker Desktop 
