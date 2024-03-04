@@ -61,8 +61,12 @@ https://nodejs.org/en/download
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213813976752853002/image.png?ex=65f6d75b&is=65e4625b&hm=0cc867a9e75454af9aa92f43f3aee1faff9587b5d48c8c81516eee5fb3b5f7b6&)
   
   จะเห็นว่าไม่มี Container ไหนทำงานอยู่เลย เพราะ Container ที่เราสร้างมาก่อนหน้านี้ ไม่มีคำสั่งใดที่ run ค้างไว้อยู่ ดังนั้นหากเราต้องการเห็น Container ทั้งหมดต้องเติม flag `-a` ไปด้วย
+  ```bash
+  docker ps -a
+  ```
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213815272029425704/image.png?ex=65f6d890&is=65e46390&hm=376734d24a37f4b1b24bf2a30c6d77da5958b11bb78b79365f8493ff24f875d1&)
   จากรูปจะเห็นว่ามี Container ทั้งหมด 2 ตัวเพราะเราใช้คำสั่ง `docker run` 2 ครั้ง
+  
   
 5. `docker rm <container-id>` ใช้สำหรับลบ Container ที่ไม่ต้องการ
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213817297878253569/image.png?ex=65f6da73&is=65e46573&hm=dda1615e148cb6bef738adebb103ca09c9a239a29f5504e769ca3a97615f930a&)
@@ -71,11 +75,11 @@ https://nodejs.org/en/download
 ## ส่วนที่ 3 Build Your Own Image With Dockerfile
 
 1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download FIle](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
-2. หลังจาก Download แล้วและเปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
+2. หลังจาก Download และแตกไฟล์แล้วให้เปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
    ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213936849152901120/image.png?ex=65f749ca&is=65e4d4ca&hm=0933f7d5fb0962e718ef69ec2ecc3f3be8831e984c04b1a607b2d09c97f03d95&)
 3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
 4. คำสั่งหลังจากนี้เราจะ run ผ่าน terminal ใน vscode ตามรูปด้านล่าง
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214167741720825877/image.png?ex=65f820d3&is=65e5abd3&hm=02c25ba114e9c336423c2ab3588a1e1155ed317dd42921f70a58886ad60cf79f&)
+  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214178765081542666/image.png?ex=65f82b17&is=65e5b617&hm=39f4eb9457e4a90d7757e1f540f028d5b4c8c859e3734aa93c69b7fd557316ac&)
 5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
    1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดย `FROM <baseimage>`
    
