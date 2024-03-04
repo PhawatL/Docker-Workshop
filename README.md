@@ -17,20 +17,26 @@
 5. ให้กด “Accept”  จากนั้นกดปุ่ม “Finish”
 ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803815774588990/image.png?ex=65f6cde5&is=65e458e5&hm=3bcd9b95dd858a718917db35d83c90e5d95435ecc0ab847e2e87c53fcbc9ef49&)
 
-6. ส่วนการ Sign in ส่วนนี้แล้วแล้วแต่เลยอยากจะ Sign in หรือไม่ก็ได้
+1. ส่วนการ Sign in อยากให้ทุกคน Sign in เพราะจะนำไปใช้ต่อในส่วนที่ 4
 ![sign in](https://cdn.discordapp.com/attachments/318688893941841920/1213804114107179058/image.png?ex=65f6ce2c&is=65e4592c&hm=c75f4a44d387ac78f8d814b0822e385dc1511b257296154a565f209d2b49594e&6)
 
-7. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
+1. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
    ![](https://media.discordapp.net/attachments/1200328562591399937/1213865337632587837/image.png?ex=65f70731&is=65e49231&hm=6dcd84fd7ab7b49065f2fc61b96f75e2565ef5bfe0b535e2564d27fdd3663f9c&=&format=webp&quality=lossless&width=1215&height=701)
 
-### (Optional) ติดตั้ง Node.js สำหรับทดสอบโปรแกรมบนเครื่องตัวเอง
-https://nodejs.org/en/download  
 
 
 ## ส่วนที่ 1 ภาพรวมของ Workshop
 
-เนื่องจากอยากให้เห็นภาพรวมมากขึ้นก่อนว่าเราจะทำอะไรใน Workshop นี้
+เนื่องจากอยากให้เห็นภาพรวมมากขึ้นก่อนว่าเราจะทำอะไรใน Workshop นี้ให้เราเปิด cmd หรือถ้าใช้ mac ให้เปิด terminal แล้ว run คำสั่งนี้
+```bash
+docker run -d  -p 8000:3000 phawatl/web-demo-for-dockerworkshop:latest
+```
 
+หลังจากรอคำสั่งทำงานจนเสร็จสิ้นให้เข้าไปที่ http://localhost:8000
+
+  หากใครเจอ error หน้าตาแบบนี้แสดงว่าเรายังไม่ได้เปิด Docker Desktop ให้เปิด Docker Desktop แล้วลอง run อีกครั้ง
+
+  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214252648203681963/image.png?ex=65f86fe7&is=65e5fae7&hm=4f29fd2569a17ff7f71757b9bb8d4f0eb09fb737de3fd2df56c8f5e76827aca0&)
 
 
 ## ส่วนที่ 2 ทำความรู้จักกับ Docker Commard เบื้องต้น
@@ -38,56 +44,75 @@ https://nodejs.org/en/download
 1. `docker pull <image-name:tag>` ใช้สำหรับการ download image มากจาก [Docker Hub](https://hub.docker.com/_/ubuntu) 
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213809850031669258/image.png?ex=65f6d383&is=65e45e83&hm=93d3cf7b9902467f24a8358a18342fda19c3c83cabed82bdd3d0ad75931b8dff&)
 
-  ตัวอย่างการใช้งาน `docker pull ubuntu:20.04`
+  ตัวอย่างการใช้งาน 
+  ```bash
+  docker pull ubuntu:20.04
+  ```
 
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213807951584694303/image.png?ex=65f6d1bf&is=65e45cbf&hm=4e711afed9a3c2b5ee99b7e3152d7e1694042dac1b1b82def4ab16da9ed9e4d4&)
-
-  หากใครเจอ error หน้าตาแบบนี้แสดงว่าเรายังไม่ได้เปิด Docker Desktop ให้เปิด Docker Desktop แล้วลอง run อีกครั้ง
-
-  ![](https://cdn.discordapp.com/attachments/1200328562591399937/1214175557701337119/image.png?ex=65f8281b&is=65e5b31b&hm=d1791c325c82b2452b80ce9c381bcacf8b8d3269d76ae1dea5cd58b43d9926e7&)
-  
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214268290244026368/image.png?ex=65f87e78&is=65e60978&hm=aa0bfbec1b779adbcc7c4df9a8c3d05d41bd74bf5d111e0182e2487f2ee50895&=&format=webp&quality=lossless)
 
 2. `docker images` ใช้สำหรับดูว่าเรามี image อะไรบางในเครื่อง
 
   ตัวอย่างการใช้งาน 
 
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213808377218465824/image.png?ex=65f6d224&is=65e45d24&hm=1abbbb19becca93a963b244b43aa12483bfe60121cd45f3329e6734f6e261b19&)
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214268406212333679/image.png?ex=65f87e94&is=65e60994&hm=51cd40ad606aceb1b760af17a3963e172e7bf92607cfac25f6960ce0341c0c2a&=&format=webp&quality=lossless)
 
 3. `docker run <image-name:tag>` ใช้สำหรับสร้าง Container ใหม่ (หากเราไม่มี image ที่ระบุในคำสั่ง Docker จะdownloadให้อัตโนมัติ)
+  ```bash
+  docker run ubuntu:20.04
+  ```
 
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213812600169701427/image.png?ex=65f6d613&is=65e46113&hm=47c5c3e85f8457cdeca909c566de2431f178683df5785210820c6c2ff80bd92c&)
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214268601998123099/image.png?ex=65f87ec2&is=65e609c2&hm=183b8500d46432425beca402f376047c8fee6ff94e46c3da9655ef7fb5c494ee&=&format=webp&quality=lossless)
 
   โดยที่เราสามารถเติมคำสั่งต่อท้ายไป เพื่อให้เมื่อหลังสร้าง Container แล้ว ให้ Container ทำคำสั่งนั้น
 
-  ตัวอย่างเช่น `docker run ubuntu:20.04 ls -la`
+  ตัวอย่างเช่น 
+  ```bash
+  docker run ubuntu:20.04 ls -la
+  ```
 
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213811755176955934/image.png?ex=65f6d549&is=65e46049&hm=fa2c7bb44da3464cb651433564ed07a60c3cdbf6d86986a0689dfd65256e8af0&)
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214271035940274256/image.png?ex=65f88107&is=65e60c07&hm=a81d2a5c32bdb67dc3d6b2f1ae73915b1b34e448248e0a290608813d0c03af21&=&format=webp&quality=lossless)
 
-4. `docker ps` ใช้สำหรับตรวจสอบว่ามี Container ไหนบ้างที่ **กำลังทำงาน** อยู่
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213813976752853002/image.png?ex=65f6d75b&is=65e4625b&hm=0cc867a9e75454af9aa92f43f3aee1faff9587b5d48c8c81516eee5fb3b5f7b6&)
+4. หากเข้าต้องการเข้าไปใน Container สามารถทำได้โดยใช้คำสั่ง `docker run -it <image-name:tag> bash`
+
+```
+docker run -it ubuntu:20.04 bash
+```
+
+![](https://media.discordapp.net/attachments/1213030615289700355/1214268964524265512/image.png?ex=65f87f19&is=65e60a19&hm=b6ba38226bb913aadd8abb743a5f487b397e65d3b64b3381d118b51e7d746718&=&format=webp&quality=lossless)
+
+และสามารถออกจาก Container ด้วยคำสั่ง `exit`
+
+
+5. `docker ps` ใช้สำหรับตรวจสอบว่ามี Container ไหนบ้างที่ **กำลังทำงาน** อยู่
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214269107101237369/image.png?ex=65f87f3b&is=65e60a3b&hm=53bf3adf2e76862ffbfed782b99304e57d5608e8350fed2d70c050affa7d985a&=&format=webp&quality=lossless)
   
-  จะเห็นว่าไม่มี Container ไหนทำงานอยู่เลย เพราะ Container ที่เราสร้างมาก่อนหน้านี้ ไม่มีคำสั่งใดที่ run ค้างไว้อยู่ ดังนั้นหากเราต้องการเห็น Container ทั้งหมดต้องเติม flag `-a` ไปด้วย
+  จะเห็นว่ามีแค่ Container ที่แสดงมีแค่ Container ของ web quiz เท่านั้น เพราะ Container ที่เราสร้างมาก่อนหน้านี้ ไม่มีคำสั่งใดที่ run ค้างไว้อยู่ ดังนั้นหากเราต้องการเห็น Container ทั้งหมดต้องเติม flag `-a` ไปด้วย
   ```bash
   docker ps -a
   ```
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213815272029425704/image.png?ex=65f6d890&is=65e46390&hm=376734d24a37f4b1b24bf2a30c6d77da5958b11bb78b79365f8493ff24f875d1&)
-  จากรูปจะเห็นว่ามี Container ทั้งหมด 2 ตัวเพราะเราใช้คำสั่ง `docker run` 2 ครั้ง
+  ![](https://media.discordapp.net/attachments/1213030615289700355/1214269582018351124/image.png?ex=65f87fac&is=65e60aac&hm=0584a1a0d616056626e856022f5774318c4e349ab6d7dcdb3f422ff6ba08da50&=&format=webp&quality=lossless&width=1440&height=261 )
+  จากรูปจะเห็นว่ามี Container ทั้งหมด 4 ตัวเพราะเราใช้คำสั่ง `docker run` 3+1 ครั้ง (+1 จาก run web quiz)
   
-  
-5. `docker rm <container-id>` ใช้สำหรับลบ Container ที่ไม่ต้องการ
-  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213817297878253569/image.png?ex=65f6da73&is=65e46573&hm=dda1615e148cb6bef738adebb103ca09c9a239a29f5504e769ca3a97615f930a&)
-6. `docker rmi <image-id>` ใช้สำหรับลบ Image ที่ไม่ต้องการ 
+
+6. `docker rm <container-id>` ใช้สำหรับลบ Container ที่ไม่ต้องการ
+![](https://media.discordapp.net/attachments/1213030615289700355/1214273997819215983/image.png?ex=65f883c9&is=65e60ec9&hm=0368c46d02c316ded3b00f6fbe2285a199702265ea009badb4aeba0e0348ecea&=&format=webp&quality=lossless&width=1440&height=278)
+
+7. `docker rmi <image-id>` ใช้สำหรับลบ Image ที่ไม่ต้องการ 
+
+8. `docker stop <container-id>` ใช้สำหรับหยุดการทำงานของ Container
+9. `docker start <container-id>` ใช้สำหรับสั่งให้ Container ที่มีอยู่แล้วเริ่มทำงาน
 
 ## ส่วนที่ 3 Build Your Own Image With Dockerfile
 
-1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download FIle](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
+1. Download ไฟล์จากใน repo นี้โดย git clone หรือจาก link นี้เลยก็ได้ [Download File](https://github.com/PhawatL/Docker-Workshop/archive/refs/heads/main.zip)
 2. หลังจาก Download และแตกไฟล์แล้วให้เปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
    ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213936849152901120/image.png?ex=65f749ca&is=65e4d4ca&hm=0933f7d5fb0962e718ef69ec2ecc3f3be8831e984c04b1a607b2d09c97f03d95&)
-3. สร้างไฟล์ใหม่ใน Folder ที่ download มาตั้งชื่อว่า Dockerfile 
+3. สร้างไฟล์ใหม่ภายใน Folder ที่ download มาตั้งชื่อไฟล์ว่า Dockerfile 
 4. คำสั่งหลังจากนี้เราจะ run ผ่าน terminal ใน vscode ตามรูปด้านล่าง
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214178765081542666/image.png?ex=65f82b17&is=65e5b617&hm=39f4eb9457e4a90d7757e1f540f028d5b4c8c859e3734aa93c69b7fd557316ac&)
 5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา โดยจะต้องมีรายละเอียดดังนี้
-   1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดย `FROM <baseimage>`
+   1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดยบรรทัดแรกของ Dockerfile จะเขียนในรูปแบบนี้ `FROM <baseimage>`
    
    ยกตัวอย่าง
    ```Docker
@@ -172,8 +197,32 @@ docker start <container-id>
 ![](https://media.discordapp.net/attachments/1213030615289700355/1214185130529263678/image.png?ex=65f83105&is=65e5bc05&hm=f610cca86d95b0aaa22e4526b98646e613d38fb8370913861be8a5b24add9d66&=&format=webp&quality=lossless)
 
 
-## ส่วนที่ 4 Clustering With Docker Swarm
+## ส่วนที่ 4 นำ Image ของเราขึ้นไปบน Registry
 
+1. เราจำเป็นต้อง Login ใน Docker Desktop ให้เรียบร้อยก่อน
+2. พิมพ์คำสั่ง
+   
+   ```bash
+   docker login
+   ```
+   ![](https://media.discordapp.net/attachments/1213030615289700355/1214279589279440958/image.png?ex=65f888fe&is=65e613fe&hm=6b184c2d1acb3bad2e88bbd8b6988dfc1829540c6874fc08be9688041314cb18&=&format=webp&quality=lossless)
+3. โดยที่ Docker บังคับว่าชื่อ image ของเราจะต้องนำหน้าด้วย username ตามด้วยชื่อ image ของเรา(ส่วนนี้เราจะตั้งอะไรก็ได้) format หน้าตาแบบนี้ `<username>/your-image-name:tag`
+4. ฉะนั้นเราจำเป็นต้องเปลี่ยนชื่อ image ของเราให้ตรงตาม format ที่เค้าต้องการก่อนโดยใช้คำสั่ง `docker tag sourceName:tag targetName:tag`
+ตัวอย่างการใช้คำสั่ง
+```bash
+docker tag dockerworkshop:1.0 phawatl/dockerworkshop:1.0
+```
+![](https://media.discordapp.net/attachments/1213030615289700355/1214283317600452731/image.png?ex=65f88c77&is=65e61777&hm=490ee2e7f0492b9422cd90d5b6141a74f2999fad22250db7b1476a7dc51522bf&=&format=webp&quality=lossless)
+
+5. หลังจากที่เราเปลี่ยนชื่อ image ให้ตรงตาม format เรียบร้อยแล้วเราก็ push โดยใช้คำสั่ง `docker push <image-name:tag>`
+
+```bash
+docker push phawatl/dockerworkshop:1.0
+```
+![](https://media.discordapp.net/attachments/1213030615289700355/1214284782549340180/image.png?ex=65f88dd4&is=65e618d4&hm=c46075ed4a9f9532c8e00d0cc7ff2593331c23ba7c4caca32ea19d846d1cf503&=&format=webp&quality=lossless)
+
+
+  
 
 
 
