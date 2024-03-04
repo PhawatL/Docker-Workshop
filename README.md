@@ -35,6 +35,10 @@ https://nodejs.org/en/download
   ตัวอย่างการใช้งาน `docker pull ubuntu:20.04`
 
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213807951584694303/image.png?ex=65f6d1bf&is=65e45cbf&hm=4e711afed9a3c2b5ee99b7e3152d7e1694042dac1b1b82def4ab16da9ed9e4d4&)
+
+  หากใครเจอ error หน้าตาแบบนี้แสดงว่าเรายังไม่ได้เปิด Docker Desktop ให้เปิด Docker Desktop แล้วลอง run อีกครั้ง
+
+  ![](https://cdn.discordapp.com/attachments/1200328562591399937/1214175557701337119/image.png?ex=65f8281b&is=65e5b31b&hm=d1791c325c82b2452b80ce9c381bcacf8b8d3269d76ae1dea5cd58b43d9926e7&)
   
 
 2. `docker images` ใช้สำหรับดูว่าเรามี image อะไรบางในเครื่อง
