@@ -11,7 +11,7 @@
 3. หลังจากรอติดตั้งประมาณ3-5นาที จะได้หน้าต่างแบบนี้
 ![image](https://media.discordapp.net/attachments/1200328562591399937/1213863652382220368/image.png?ex=65f7059f&is=65e4909f&hm=1f3fc101e4374dadd0360f74bdd016f720cf3d19fc2e38305e5918a5f80dd2c6&=&format=webp&quality=lossless)
 
-4. เมื่อกดปุ่ม “Close and restart” แล้ว คอมพิวเตอร์จะ restart เครื่องเองโดยอัตโนมัติและเมื่อคอมพิวเตอร์เปิดขึ้นมาใหม่ รอประมาณ 30 วินาที(ขึ้นอยู่กับความเร็วของคอมพิวเตอร์)จะได้หน้าต่างแบบนี้ขึ้นมา
+4. เมื่อกดปุ่ม “Close and restart” แล้วคอมพิวเตอร์จะ restart เครื่องเองโดยอัตโนมัติและเมื่อคอมพิวเตอร์เปิดขึ้นมาใหม่ รอประมาณ 30-60 วินาที (ขึ้นอยู่กับความเร็วของคอมพิวเตอร์)จะได้หน้าต่างแบบนี้ขึ้นมา
 ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803386642759740/image.png?ex=65f6cd7e&is=65e4587e&hm=f69000b48c80e429506daa598b40867ca6fe4bda6ebd57ffe2609ef85f8f6adf&)
 
 5. ให้กด “Accept”  จากนั้นกดปุ่ม “Finish”
@@ -70,7 +70,9 @@ https://nodejs.org/en/download
 2. หลังจาก Download แล้วและเปิด Folder ผ่าน vscode จะได้หน้าตาดังรูป
    ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213936849152901120/image.png?ex=65f749ca&is=65e4d4ca&hm=0933f7d5fb0962e718ef69ec2ecc3f3be8831e984c04b1a607b2d09c97f03d95&)
 3. สร้างไฟล์ใหม่ตั้งชื่อว่า Dockerfile
-4. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
+4. คำสั่งหลังจากนี้เราจะ run ผ่าน terminal ใน vscode ตามรูปด้านล่าง
+  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214167741720825877/image.png?ex=65f820d3&is=65e5abd3&hm=02c25ba114e9c336423c2ab3588a1e1155ed317dd42921f70a58886ad60cf79f&)
+5. ภายใน Dockerfile จะเป็นเหมือน Blueprint ที่จะเขียนรายละเอียดการสร้าง image ของเรา
    1. Baseimage โดยเราสามารถเลือก image จาก [Dockerhub](https://hub.docker.com/) โดย Baseimage นี้จะเป็น os และ environment พิ้นฐานให้กับ container ยกตัวอย่างในกรณีนี้เราจะ run application โดยใช้ nodejs เราจึงควรลง image ที่พร้อมสำหรับการ run application ที่ใช้ nodejs โดย `FROM <baseimage>`
    
    ยกตัวอย่าง
@@ -99,8 +101,46 @@ https://nodejs.org/en/download
    ```
    6. ตั้ง default command ด้วย `CMD` โดยที่ default command จะทำงานทุกครั้งที่เราสั่ง start container ต่างจาก `RUN` ที่จะทำงานเฉพาะตอนสร้าง image เท่านั้น ดังนั้น default command ควรเป็น command สำหรับ run App ของเรา
    ```Docker
-   CMD ["node","index.js"]
+   CMD ["node","app.js"]
    ```
   สุดท้ายเราจะได้ Dockerfile หน้าตาแบบนี้
 
   ![](https://cdn.discordapp.com/attachments/1213030615289700355/1213935731756630146/image.png?ex=65f748c0&is=65e4d3c0&hm=776d22fea9926f57bae01959a02b64160c73420592208671d190cbed4f19bd74&)
+  
+6. และเมื่อเราเขียน Dockerfile เสร็จแล้วเราก็สามารถ build image ตามที่ Dockerfile เราเขียนได้เลยด้วยคำสั่ง
+  ```
+  docker build -t <your-image-name:tag> .
+  ```
+  คำสั่งนี้จะ build image ตาม Dockerfile ที่อยู่ใน Directory ปัจจุบันของเรา
+
+  ตัวอย่างผลลัพธ์
+
+  ![](https://cdn.discordapp.com/attachments/1213030615289700355/1214169373653078066/image.png?ex=65f82258&is=65e5ad58&hm=9712dcb117427d8ba36db7e1f6d17d662b16dc926dc912092dcfe35494f68f8f&)
+
+  คำสั่งที่ใช้ในตัวอย่าง
+
+  ```
+  docker build -t dockerworkshop:1.0 .
+  ```
+7. หลังจกาที่เรา build image ของเราสามารถตรวจสอบดูได้ผ่าน
+```
+docker images
+```
+
+![](https://cdn.discordapp.com/attachments/1213030615289700355/1214171619359203338/image.png?ex=65f82470&is=65e5af70&hm=217408c8e17cb270709c0bf4bc0b6a81b7ecbdf68332948f4e1e775730dae287&)
+
+8. เมื่อเราได้ image ที่ต้องการแล้ว เราลอง run มันด้วยคำสั่ง `docker run` โดยเราจะมีการเพิ่ม flag ไป 2 ตัวคือ `-d` สำหรับให้ container run in background และ `-p` สำหรับ map port ของ host กับ port ของ container
+```
+docker run -d -p host:container <image-name:tag>
+```
+
+![](https://cdn.discordapp.com/attachments/1213030615289700355/1214171696530071572/image.png?ex=65f82482&is=65e5af82&hm=353319a1a729f4bb8a8bf6bf4023fb50e3e2e43bb21396dab1f4bf559daff138&)
+
+หลังจาก run คำสั่งแล้วจะได้ containerID ออกมา เราสามารถตรวจสอบได้ว่า container เราทำงานอยู่จริงหรือไม่ได้จาก Docker Desktop 
+
+![](https://media.discordapp.net/attachments/1213030615289700355/1214171728151052308/image.png?ex=65f8248a&is=65e5af8a&hm=c24f00edea30f8011c522221c9e2080a5eb8b93c74662e5df44602063339bf1a&=&format=webp&quality=lossless)
+
+ตอนนี้เราสามารถลองเปิด http://localhost:8080
+
+
+
