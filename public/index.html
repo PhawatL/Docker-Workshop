@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EZ Quiz</title>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        />
-        <link rel="stylesheet" href="style.css" />
-        <style>
-            body {
-                background-color: #f8f9fa;
-            }
 
-            #quiz-container {
-                background: #ffffff;
-                border-radius: 10px;
-                padding: 40px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ Quiz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
 
-            #question {
-                font-size: 24px;
-            }
+        #quiz-container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-            #options .btn-option {
-                display: block;
-                width: 100%;
-                margin: 10px 0;
-                padding: 10px;
-            }
+        #question {
+            font-size: 24px;
+        }
 
-            #next-button {
-                margin-top: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container mt-5">
-            <div id="quiz-container" class="text-center">
-                <h1 id="question">Question Text</h1>
-                <div id="options" class="my-4"></div>
-                <button id="next-button" class="btn btn-primary">
-                    Next Question
-                </button>
-            </div>
+        #options .btn-option {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        #next-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div id="quiz-container" class="text-center">
+            <h1 id="question">Question Text</h1>
+            <div id="options" class="my-4"></div>
+            <button id="next-button" class="btn btn-primary">
+                Next Question
+            </button>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", (event) => {
-                const questionElement = document.getElementById("question");
-                const optionsElement = document.getElementById("options");
-                const nextButton = document.getElementById("next-button");
-                let currentQuestionIndex = 0;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const nextButton = document.getElementById("next-button");
+            let currentQuestionIndex = 0;
 
-                const questions = [
-                    {
-                        question: "1 + 1 = ?",
-                        options: [
-                            "10",
-                            "2",
-                            "I'll get back to you on that. My calculator needs a nap. ",
-                            "While I'm not a mathematician, I'm pretty sure it's somewhere between 1 and 3.",
-                            "It depends on your definition of '1' and '+'.",
-                            "I'm just here for the answers.",
-                            "All of the above (but seriously, it's 2).",
-                            "Honestly, I'm just here for the answers.",
-                        ],
-                        answer: "All of the above (but seriously, it's 2).",
-                    },
-                    {
-                        question: "What is the capital of Thailand?",
-                        options: [
-                            "Bangkok",
-                            "Bangdik",
-                            "Bangpusi",
-                            "Bangtits",
-                            "Honestly, I'm just here for the answers.",
-                        ],
-                        answer: "Bangkok",
-                    },
-                ];
+            const questions = [
+                {
+                    question: "1 + 1 = ?",
+                    options: [
+                        "10",
+                        "2",
+                        "I'll get back to you on that. My calculator needs a nap. ",
+                        "While I'm not a mathematician, I'm pretty sure it's somewhere between 1 and 3.",
+                        "It depends on your definition of '1' and '+'.",
+                        "All of the above (but seriously, it's 2).",
+                        "Honestly, I'm just here for the answers.",
+                    ],
+                    answer: ["All of the above (but seriously, it's 2).","10","2","It depends on your definition of '1' and '+'.","While I'm not a mathematician, I'm pretty sure it's somewhere between 1 and 3."],
+                },
+                {
+                    question: "What did one ocean say to the other ocean?",
+                    options: [
+                        "Nothing, they just waved.",
+                        "We should make some waves!",
+                        "Hey, buoy, you're looking swell today!",
+                        "Long time no sea!",
+                        "Honestly, I'm just here for the answers.",
+                    ],
+                    answer: ["Nothing, they just waved."],
+                },
+                {
+                    question: "What do you call fake spaghetti?",
+                    options: [
+                        "Fauxghetti.",
+                        "Fakeshetti.",
+                        "Amogus.",
 
-                function loadQuestion(questionIndex) {
-                    const question = questions[questionIndex];
-                    questionElement.textContent = question.question;
-                    optionsElement.innerHTML = "";
-                    question.options.forEach((option) => {
-                        const button = document.createElement("button");
-                        button.textContent = option;
-                        button.classList.add("btn", "btn-option");
-                        button.onclick = () => selectOption(option);
-                        optionsElement.appendChild(button);
-                    });
-                }
+                        "An impasta.",
+                        "Spagh-pretend-i.",
+                    ],
+                    answer: ["An impasta."]
+                },
+                {
+                    question: "How do you catch a squirrel?",
+                    options: [
+                        "Climb a tree and act like a nut.",
+                        "Put out a tiny 'Free Nuts' sign.",
+                        "Squirrel whispering.",
+                        "Just be faster than the nut it's after.",
+                        "You don't. You just embrace the chaos."
+                    ],
+                    answer: ["Climb a tree and act like a nut."]
+                },
+            ];
 
-                function selectOption(selected) {
-                    const question = questions[currentQuestionIndex];
-                    if (selected === question.answer) {
-                        alert("Correct!");
-                    } else {
-                        alert("Wrong!");
-                    }
-                }
-
-                nextButton.addEventListener("click", () => {
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex < questions.length) {
-                        loadQuestion(currentQuestionIndex);
-                    } else {
-                        alert("Quiz completed!");
-                        currentQuestionIndex = 0;
-                    }
-                    loadQuestion(currentQuestionIndex);
+            function loadQuestion(questionIndex) {
+                const question = questions[questionIndex];
+                questionElement.textContent = question.question;
+                optionsElement.innerHTML = "";
+                question.options.forEach((option) => {
+                    const button = document.createElement("button");
+                    button.textContent = option;
+                    button.classList.add("btn", "btn-option");
+                    button.onclick = () => selectOption(option);
+                    optionsElement.appendChild(button);
                 });
+            }
+            function selectOption(selected) {
+                const question = questions[currentQuestionIndex];
+                if (question.answer.includes(selected)) {
+                    alert("Correct!");
+                } else if (selected === "Amogus.") {
+                    window.location.href = 'https://pbs.twimg.com/profile_images/1324389495442186242/GW1X0KTX_400x400.jpg';
+                } else {
+                    alert("Wrong!");
+                }
+            }
 
+            nextButton.addEventListener("click", () => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion(currentQuestionIndex);
+                } else {
+                    alert("Quiz completed!");
+                    currentQuestionIndex = 0;
+                }
                 loadQuestion(currentQuestionIndex);
             });
-        </script>
-    </body>
+
+            loadQuestion(currentQuestionIndex);
+        });
+    </script>
+</body>
+
 </html>
