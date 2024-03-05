@@ -1,12 +1,13 @@
 const express = require('express')
 const path = require('path')
+const os = require('os')
 const app = express()
-const os = express('os')
+
 
 let counter = 0;
 
 app.get('/',(req,res)=>{
-    res.end(`<div>Hostname (ContainerID) :<strong> ${os.hostname}</strong></div> Count : ${counter++}`)
+    res.end(`<div>Hostname (ContainerID) : ${os.hostname} </div> Count : ${counter++}`)
 })
 let port = 3000
 
