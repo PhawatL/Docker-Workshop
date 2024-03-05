@@ -221,6 +221,32 @@ docker push phawatl/dockerworkshop:1.0
 ```
 ![](https://media.discordapp.net/attachments/1213030615289700355/1214284782549340180/image.png?ex=65f88dd4&is=65e618d4&hm=c46075ed4a9f9532c8e00d0cc7ff2593331c23ba7c4caca32ea19d846d1cf503&=&format=webp&quality=lossless)
 
+## ส่วนที่ 5 Clustering With Docker Swarm
+
+1. เปิดใช้งาน Docker Swarm
+   ```bash
+   docker swarm init
+   ```
+2. สร้าง service ด้วย Docker Swarm
+   ```bash
+   docker service create --replicas 4 --name web-service --publish 555:3000 dockerworkshop:1.0
+   ```
+   `--replicas` ระบุจำนวน container ต้องการ run ใน service
+
+   `--name` ตั้งชื่อ service
+
+   `--publish` สำหรับ map port ของเครื่อง host กับ container
+3. เราสามารถดูว่ามี service อะไรกำลัง run อยู่บ้างด้วย
+   ```
+   docker service ls
+   ```
+4. โดยเราสามารถลบ service ด้วยคำสั่ง 
+   
+   ```
+   docker service rm <service-id>
+   ```
+   
+
 
   
 
