@@ -29,7 +29,7 @@
 
 เนื่องจากอยากให้เห็นภาพรวมมากขึ้นก่อนว่าเราจะทำอะไรใน Workshop นี้ให้เราเปิด cmd หรือถ้าใช้ mac ให้เปิด terminal แล้ว run คำสั่งนี้
 ```bash
-docker run -d  -p 8000:3000 phawatl/web-demo-for-dockerworkshop:latest
+docker run -d -p 8000:3000 phawatl/web-demo-for-dockerworkshop:latest
 ```
 
 หลังจากรอคำสั่งทำงานจนเสร็จสิ้นให้เข้าไปที่ http://localhost:8000
@@ -124,7 +124,7 @@ docker run -it ubuntu:20.04 bash
    ```Docker
    WORKDIR /app
    ```
-   3. Copy Application ของเราเข้าไปใส่ใน Container ด้วย `COPY <source> <dest>`
+   3. Copy Application จากคอมพิวเตอร์ของ host เข้าไปใส่ใน Container ด้วย `COPY <source> <dest>`
    
    ตัวอย่าง
    ```Docker
