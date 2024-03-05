@@ -150,6 +150,8 @@ docker run -it ubuntu:20.04 bash
   ```bash
   docker build -t <your-image-name:tag> .
   ```
+  `-t` คือการตั้งชื่อ image
+  
   คำสั่งนี้จะ build image ตาม Dockerfile ที่อยู่ใน Directory ปัจจุบันของเรา
 
   ตัวอย่างผลลัพธ์
@@ -161,6 +163,8 @@ docker run -it ubuntu:20.04 bash
   ```bash
   docker build -t dockerworkshop:1.0 .
   ```
+
+
 7. หลังจกาที่เรา build image ของเราสามารถตรวจสอบดูได้ผ่าน
 ```bash
 docker images
@@ -227,15 +231,19 @@ docker push phawatl/dockerworkshop:1.0
    ```bash
    docker swarm init
    ```
-2. สร้าง service ด้วย Docker Swarm
+2. สร้าง service ด้วย `docker service create <your-image-name>`
    ```bash
    docker service create --replicas 4 --name web-service --publish 555:3000 dockerworkshop:1.0
    ```
+   flag ที่ใช้:
+
    `--replicas` ระบุจำนวน container ต้องการ run ใน service
 
    `--name` ตั้งชื่อ service
 
    `--publish` สำหรับ map port ของเครื่อง host กับ container
+
+   เมื่อสร้างแล้วลองเข้าไปที่ http://localhost:555/
 3. เราสามารถดูว่ามี service อะไรกำลัง run อยู่บ้างด้วย
    ```
    docker service ls
