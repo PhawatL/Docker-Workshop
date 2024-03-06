@@ -4,9 +4,9 @@
 
 
 1. download docker จาก https://www.docker.com/get-started/
-2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายให้ครบทุกช่องแล้วกด ok (ในคอมพิวเตอร์บางเครื่องอาจมีให้ติ๊ก2ช่องให้ติ๊กทั้ง2ช่องเลย)
+2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายช่อง Use WSL 2 (ในคอมพิวเตอร์บางเครื่องอาจไม่มีให้กดokได้เลย)
 
-    ![image](https://cdn.discordapp.com/attachments/1200328562591399937/1213863087137103903/image.png?ex=65f70518&is=65e49018&hm=586a84ac705c86b48143c6951325336a232207361db6f561c2bc09dc57d72fd6&)
+    ![image](https://media.discordapp.net/attachments/1200328562591399937/1214950531617792040/image.png?ex=65faf9db&is=65e884db&hm=8b5fe7f324dccb2de1bc8b78bdc243b427330ec9bd1b56ed127bb2c253abcd5b&=&format=webp&quality=lossless&width=1018&height=701)
 
 3. หลังจากรอติดตั้งประมาณ3-5นาที จะได้หน้าต่างแบบนี้
 ![image](https://media.discordapp.net/attachments/1200328562591399937/1213863652382220368/image.png?ex=65f7059f&is=65e4909f&hm=1f3fc101e4374dadd0360f74bdd016f720cf3d19fc2e38305e5918a5f80dd2c6&=&format=webp&quality=lossless)
