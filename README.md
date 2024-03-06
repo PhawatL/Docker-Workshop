@@ -4,7 +4,7 @@
 
 
 1. download docker จาก https://www.docker.com/get-started/
-2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายช่อง Use WSL 2 (ในคอมพิวเตอร์บางเครื่องอาจไม่มีให้กดokได้เลย)
+2. เมื่อ download แล้วให้กดติดตั้งโดยที่จะมีหน้าตาแบบนี้ ให้เราทำการติ๊กเครื่องหมายช่อง Use WSL 2 (ในคอมพิวเตอร์บางเครื่องอาจไม่มี WSL ให้กดokได้เลย)
 
     ![image](https://media.discordapp.net/attachments/1200328562591399937/1214950531617792040/image.png?ex=65faf9db&is=65e884db&hm=8b5fe7f324dccb2de1bc8b78bdc243b427330ec9bd1b56ed127bb2c253abcd5b&=&format=webp&quality=lossless&width=1018&height=701)
 
@@ -17,13 +17,26 @@
 5. ให้กด “Accept”  จากนั้นกดปุ่ม “Finish”
 ![image](https://cdn.discordapp.com/attachments/318688893941841920/1213803815774588990/image.png?ex=65f6cde5&is=65e458e5&hm=3bcd9b95dd858a718917db35d83c90e5d95435ecc0ab847e2e87c53fcbc9ef49&)
 
-1. ส่วนการ Sign in อยากให้ทุกคน Sign in เพราะจะนำไปใช้ต่อในส่วนที่ 4
+6. ส่วนการ Sign in อยากให้ทุกคน Sign in เพราะจะนำไปใช้ต่อในส่วนที่ 4
 ![sign in](https://cdn.discordapp.com/attachments/318688893941841920/1213804114107179058/image.png?ex=65f6ce2c&is=65e4592c&hm=c75f4a44d387ac78f8d814b0822e385dc1511b257296154a565f209d2b49594e&6)
 
-1. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
+7. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
    ![](https://media.discordapp.net/attachments/1200328562591399937/1213865337632587837/image.png?ex=65f70731&is=65e49231&hm=6dcd84fd7ab7b49065f2fc61b96f75e2565ef5bfe0b535e2564d27fdd3663f9c&=&format=webp&quality=lossless&width=1215&height=701)
 
+หากพบ error หน้าตาแบบนี้ (ใครได้หน้าต่างแบบขั้นที่ 7 ข้ามขั้นนี้ได้เลย)
 
+![](https://cdn.discordapp.com/attachments/1213030615289700355/1215012713835798608/image.png?ex=65fb33c4&is=65e8bec4&hm=48a59c11a638fd80766fafb0d2e289d4c676e97aaa94b3ad7dced6f72a1a77c9&)
+
+ให้เปิด cmd ขึ้นมาแล้ว run
+```
+wsl.exe --update
+```
+หลังจากรอคำสั่ง run เสร็จให้ run คำสั่งนี้ต่อ
+```
+wsl --install -d ubuntu
+```
+
+จากนั้นลองเปิด Docker Desktop อีกครั้ง
 
 ## ส่วนที่ 1 ภาพรวมของ Workshop
 
