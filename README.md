@@ -23,7 +23,7 @@
 7. เมื่อได้หน้าต่างนี้แล้วถือว่าลง Docker สำเร็จแล้ว
    ![](https://media.discordapp.net/attachments/1200328562591399937/1213865337632587837/image.png?ex=65f70731&is=65e49231&hm=6dcd84fd7ab7b49065f2fc61b96f75e2565ef5bfe0b535e2564d27fdd3663f9c&=&format=webp&quality=lossless&width=1215&height=701)
 
-หากพบ error หน้าตาแบบนี้ (ใครได้หน้าต่างแบบขั้นที่ 7 ข้ามขั้นนี้ได้เลย)
+8. หากพบ error หน้าตาแบบนี้ (ใครได้หน้าต่างแบบขั้นที่ 7 ข้ามขั้นนี้ได้เลย)
 
 ![](https://cdn.discordapp.com/attachments/1213030615289700355/1215012713835798608/image.png?ex=65fb33c4&is=65e8bec4&hm=48a59c11a638fd80766fafb0d2e289d4c676e97aaa94b3ad7dced6f72a1a77c9&)
 
@@ -35,6 +35,9 @@ wsl.exe --update
 ```
 wsl --install -d ubuntu
 ```
+เมื่อ run เสร็จระบบจะให้ตั้ง username password ตั้งตามใจเลย
+
+![](https://cdn.discordapp.com/attachments/1213030615289700355/1215188050943148042/image.png?ex=65fbd710&is=65e96210&hm=ed9c3750c05bd99b7075045a765aa5039a0f11b0ecfb806feb0325d5b87a35db&)
 
 จากนั้นลองเปิด Docker Desktop อีกครั้ง
 
