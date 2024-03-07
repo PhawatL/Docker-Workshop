@@ -226,18 +226,18 @@ docker start <container-id>
    docker login
    ```
    ![](https://media.discordapp.net/attachments/1213030615289700355/1214279589279440958/image.png?ex=65f888fe&is=65e613fe&hm=6b184c2d1acb3bad2e88bbd8b6988dfc1829540c6874fc08be9688041314cb18&=&format=webp&quality=lossless)
-3. โดยที่ Docker บังคับว่าชื่อ image ของเราจะต้องนำหน้าด้วย username ตามด้วยชื่อ image ของเรา(ส่วนนี้เราจะตั้งอะไรก็ได้) format หน้าตาแบบนี้ `<username>/your-image-name:tag`
-4. ฉะนั้นเราจำเป็นต้องเปลี่ยนชื่อ image ของเราให้ตรงตาม format ที่เค้าต้องการก่อนโดยใช้คำสั่ง `docker tag sourceName:tag targetName:tag`
+3. โดยที่ Docker บังคับว่าชื่อ image ของเราจะต้องนำหน้าด้วย username ตามด้วยชื่อ image ของเรา(ส่วนนี้เราจะตั้งอะไรก็ได้) format หน้าตาแบบนี้ `<your-docker-username>/your-image-name:tag`
+4. ฉะนั้นเราจำเป็นต้องเปลี่ยนชื่อ image ของเราให้ตรงตาม format ที่เค้าต้องการก่อนโดยใช้คำสั่ง `docker tag sourceImageName:tag <your-docker-username>/NewImageName:tag`
 ตัวอย่างการใช้คำสั่ง
 ```bash
-docker tag dockerworkshop:1.0 phawatl/dockerworkshop:1.0
+docker tag dockerworkshop:1.0 <your-docker-username>/dockerworkshop:1.0
 ```
 ![](https://media.discordapp.net/attachments/1213030615289700355/1214283317600452731/image.png?ex=65f88c77&is=65e61777&hm=490ee2e7f0492b9422cd90d5b6141a74f2999fad22250db7b1476a7dc51522bf&=&format=webp&quality=lossless)
 
 5. หลังจากที่เราเปลี่ยนชื่อ image ให้ตรงตาม format เรียบร้อยแล้วเราก็ push โดยใช้คำสั่ง `docker push <image-name:tag>`
 
 ```bash
-docker push phawatl/dockerworkshop:1.0
+docker push <your-docker-username>/dockerworkshop:1.0
 ```
 ![](https://media.discordapp.net/attachments/1213030615289700355/1214284782549340180/image.png?ex=65f88dd4&is=65e618d4&hm=c46075ed4a9f9532c8e00d0cc7ff2593331c23ba7c4caca32ea19d846d1cf503&=&format=webp&quality=lossless)
 
