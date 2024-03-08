@@ -150,7 +150,7 @@ docker run -it ubuntu:20.04 bash
    ```Docker
    RUN npm i
    ```
-   5. เนื่องจาก App ของเรามีการใช้ port เราจึงต้อง Expose port ด้วย ในกรณีนี้คือ port 3000 (ดูจาก index.js)
+   5. เนื่องจาก App ของเรามีการใช้ port เราจึงต้อง Expose port ด้วย ในกรณีนี้คือ port 3000 (ดูจาก app.js)
    ```Docker
    EXPOSE 3000
    ```
