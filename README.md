@@ -181,7 +181,7 @@ docker run -it ubuntu:20.04 bash
   ```
 
 
-7. หลังจกาที่เรา build image ของเราสามารถตรวจสอบดูได้ผ่าน
+7. หลังจากที่เรา build image ของเราสามารถตรวจสอบดูได้ผ่าน
 ```bash
 docker images
 ```
